@@ -1,0 +1,12 @@
+{
+  "name": "nodeOnOffLed",
+  "version": "1.0.0",
+  "description": "Turn on/off LED via API",
+  "main": "app.js",
+  "author": "Brianmanden",
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "onoff": "^1.0.2"
+  }
+}

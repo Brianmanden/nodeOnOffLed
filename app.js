@@ -21,7 +21,6 @@ app.get('/', routes.index);
 app.get('/on', routes.ledOn);
 app.get('/off', routes.ledOff);
 
-
 //
 // nodejs webserver
 //
@@ -33,4 +32,3 @@ function startServer(){
 }
 
 startServer();
-

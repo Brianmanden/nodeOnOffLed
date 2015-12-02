@@ -11,6 +11,7 @@ var 	gpio		= require('onoff').Gpio,
 	clientEndPoint2	= 'order',
 	clientURL	= 'http://' + clientIP + ':' + clientPort + '/'  + clientEndPoint1;
 
+
 //
 // definition of routes
 //
@@ -34,24 +35,12 @@ exports.ledOff = function(req, res){
 
 exports.order = function(req, res){
 	console.log("/order");
-
-	/*
-	var params = '';
-
-	for(var param in req.query){
-		params += req.query[param] + " ";
-	}
-	*/
-
 	var url = 'http://' + clientIP + ':' + clientPort + '/' + clientEndPoint2;
-
 	orderClient(url, req.query);
-
 	res.render('computer');
 };
 
 function clientStatus(url){
-
 	console.log('client up and running ? - ' + url);
 
 	var deferred = Q.defer();
@@ -62,7 +51,7 @@ function clientStatus(url){
 			deferred.resolve();
 		}
 		else{
-			console.log('error: ' + err);
+			console.log('status error: ' + error);
 			deferred.reject();
 		}
 
@@ -94,7 +83,7 @@ function orderClient(url, params){
 			console.log('executable started on client');
 			deferred.resolve();
 		}else{
-			console.log('something went wrong');
+			console.log('something went wrong: ' + error);
 			deferred.reject();
 		}
 	});

@@ -1,0 +1,43 @@
+//
+// init
+//
+var 	gpio		= require('onoff').Gpio,
+	led		= new gpio(14, 'out'),
+	request		= require('request'),
+	clientURL	= 'http://192.168.1.105:4000/alive';
+
+//
+// definition of routes
+//
+exports.index = function(req, res){
+	console.log("/index");
+	res.render('index');
+};
+
+exports.ledOn = function(req, res){
+	console.log("/on");
+	led.writeSync(1);
+	clientUp(clientURL);
+	res.render('index');
+};
+
+exports.ledOff = function(req, res){
+	console.log("/off");
+	led.writeSync(0);
+	res.render('index');
+};
+
+function clientUp(url){
+	console.log('client up and running ? - ' + url);
+
+	request(url, function(error, response, body){
+
+		if(!error && response.statusCode == 200){
+			return true;
+		}
+		else{
+			c
+		}
+
+	});
+}

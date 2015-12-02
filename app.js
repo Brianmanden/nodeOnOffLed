@@ -20,6 +20,7 @@ app.set('view engine', 'html');
 app.get('/', routes.index);
 app.get('/on', routes.ledOn);
 app.get('/off', routes.ledOff);
+app.get('/order', routes.order);
 
 //
 // nodejs webserver
